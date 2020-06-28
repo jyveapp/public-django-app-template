@@ -25,3 +25,8 @@ RUN sudo tar -xvzf Python-3.6.10.tgz
 RUN cd Python-3.6.10 && sudo ./configure --prefix=/usr/
 RUN cd Python-3.6.10 && sudo make
 RUN cd Python-3.6.10 && sudo make install
+
+RUN sudo apt-get install postgresql-client
+# Solves issues with pip
+# https://github.com/pypa/pip/issues/4924
+RUN sudo rm /usr/bin/lsb_release
